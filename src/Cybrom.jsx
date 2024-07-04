@@ -1,7 +1,14 @@
-const Cybrom=()=>{
+
+const Cybrom=(props)=>{
     return(
         <>
-        <h>this is new cybrom</h>
+        <tr>
+            <td>{props.r} </td>
+            <td>{props.n} </td>
+            <td>{props.c} </td>
+            <td>{props.s} </td>
+
+            </tr>
         </>
     )
 }

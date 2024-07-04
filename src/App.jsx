@@ -1,29 +1,26 @@
-
-// import Header from "./Header";
-// import Data from "./Data";
-// import Fotter from "./Fotter";
-import Employee from "./Employee";
-import Student from "./Student";
-
-const nm="ashish sir";
-const ci="banglore";
-
-
+import { useState } from "react";
 
 const App=()=>{
-  return(
-   // <h1>hello my subject is{sub}</h1>
-   <>
-   {/* <Header/>
-  <Data/>
-  <Fotter/> */}
-  {/* <Employee  n="satyam" c="rewa"/> */}
-
-  <Student n={nm} c={ci}/>
-
-   </>
-
-  )
+  const [name, setName]=useState("");
+  const [city, setCity]=useState("");
+  const submitHandle=()=>{
+    let inputVal={name:name,city:city}
+    console.log(inputVal);
   }
+
+   
+
+  return(
+    <>
+    <h1>application form</h1>
+    Enter Name: <input type="text" value={name} onChange={(e)=>{setName (e.target.value)}}/>
+      <br/>
+      Enter City: <input type="text" value={city} onChange={(e)=>{setCity (e.target.value)}}/>
+        <br/>
+        <button onClick={submitHandle}>data save</button>
+    
+    </>
+  )
+}
 
 export default App;
