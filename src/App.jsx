@@ -1,26 +1,40 @@
-import { useState } from "react";
+ import { useEffect, useState } from "react";
 
 const App=()=>{
-  const [name, setName]=useState("");
-  const [city, setCity]=useState("");
-  const submitHandle=()=>{
-    let inputVal={name:name,city:city}
-    console.log(inputVal);
-  }
-
-   
-
+  const [ cnt, setCnt]=useState(0);
+  useEffect(()=>{
+    setTimeout(()=>{
+      setCnt(cnt+1);
+    },4000)
+  });
   return(
     <>
-    <h1>application form</h1>
-    Enter Name: <input type="text" value={name} onChange={(e)=>{setName (e.target.value)}}/>
-      <br/>
-      Enter City: <input type="text" value={city} onChange={(e)=>{setCity (e.target.value)}}/>
-        <br/>
-        <button onClick={submitHandle}>data save</button>
-    
+
+    <h1>application form: {cnt}</h1>
     </>
   )
 }
-
 export default App;
+
+
+
+
+ /*import { useEffect, useState } from "react";
+
+const App=()=>{
+  const [ cnt, setCnt]=useState(0);
+  const [multi,setMulti]=useState(1);
+  useEffect(()=>{
+    setMulti(cnt*2);
+  },[cnt])
+  return(
+    <>
+
+    <button onClick={()=>{setCnt(cnt+1)}}>click here</button>
+    <h1>my account: {cnt}</h1>
+    <h2>multiplication: {multi}</h2>
+  
+    </>
+  )
+}
+export default App;*/
